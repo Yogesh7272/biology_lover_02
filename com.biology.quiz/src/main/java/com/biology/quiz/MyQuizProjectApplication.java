@@ -12,7 +12,7 @@ public class MyQuizProjectApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(MyQuizProjectApplication.class, args);
-		System.out.println("SuccessFully Run...");
+		System.out.println("SuccessFully Run Project...");
 	}
 
 	@Bean
