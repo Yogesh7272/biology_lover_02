@@ -1,0 +1,10 @@
+<div class="container mx-auto py-12">
+    <h1 class="text-3xl md:text-4xl font-bold text-green-800 text-center mb-8">Biology Blogs</h1>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div *ngFor="let blog of blogs" class="bg-white shadow-lg rounded-lg p-6 m-4 hover:shadow-xl transition-shadow">
+        <h3 class="text-xl font-bold text-green-800">{{ blog.title }}</h3>
+        <p class="text-gray-600 mt-2">{{ blog.description }}</p>
+        <a [routerLink]="blog.link" class="text-green-600 hover:underline mt-4 inline-block">Read More</a>
+      </div>
+    </div>
+  </div>

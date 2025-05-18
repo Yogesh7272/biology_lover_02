@@ -1,0 +1,282 @@
+/* General Layout & Responsiveness */
+.blog-list-wrapper {
+  max-width: 1500px; /* Increased max-width to comfortably fit 5 cards with good spacing */
+  margin: 50px auto;
+  padding: 30px; /* Consistent padding */
+  font-family: 'Open Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+}
+
+.blog-list-title {
+  text-align: center;
+  font-size: 3.2em; /* Slightly larger, more prominent title */
+  color: #2c3e50;
+  margin-bottom: 50px;
+  position: relative;
+  padding-bottom: 15px;
+  font-weight: 700;
+  letter-spacing: 0.04em; /* Increased letter spacing for impact */
+}
+
+.blog-list-title::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 120px; /* Wider underline for a stronger emphasis */
+  height: 5px;
+  background-color: #27ae60;
+  border-radius: 3px;
+}
+
+.blog-container {
+  display: grid;
+  /* Adjust minmax to fit 5 cards. Each card will be approx 280px wide including gaps */
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Min width for cards */
+  gap: 25px; /* Reduced gap between cards for tighter fit */
+  padding: 20px 0;
+}
+
+/* Blog Card Styling */
+.blog-card {
+  background-color: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.blog-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+.blog-image-wrapper {
+  width: 100%;
+  padding-top: 60%; /* 16:9 aspect ratio */
+  position: relative;
+  overflow: hidden;
+  background-color: #f5f5f5;
+}
+
+.blog-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.blog-card:hover .blog-image {
+  transform: scale(1.1);
+}
+
+.blog-content {
+  padding: 20px; /* Adjusted internal padding for content */
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.blog-title {
+  font-size: 1.5em; /* Adjusted title font size for compact cards */
+  color: #34495e;
+  margin-top: 0;
+  margin-bottom: 10px;
+  line-height: 1.3;
+  font-weight: 600;
+  /* Limit title to 2 lines if it's too long */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.blog-excerpt { /* New class for description */
+  font-size: 0.95em; /* Adjusted description font size */
+  color: #7f8c8d;
+  line-height: 1.5; /* Good line spacing for readability */
+  margin-bottom: 15px;
+  flex-grow: 1; /* Allow description to push button down */
+  /* Limit description to 3 lines */
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.blog-meta {
+  font-size: 0.8em; /* Slightly smaller meta text for subtle detail */
+  color: #95a5a6;
+  margin-top: auto; /* Pushes meta to the bottom if content is shorter */
+  margin-bottom: 15px;
+}
+
+/* Read More Button */
+.blog-actions {
+    text-align: center;
+    margin-top: auto;
+}
+
+.read-more-button {
+  display: inline-block;
+  background-color: #27ae60;
+  color: #ffffff;
+  padding: 10px 22px; /* Button padding adjusted for smaller cards */
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1em; /* Button text size adjusted */
+  font-weight: 700;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  align-self: flex-start;
+  box-shadow: 0 3px 6px rgba(39, 174, 96, 0.2);
+}
+
+.read-more-button:hover {
+  background-color: #229954;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 10px rgba(39, 174, 96, 0.3);
+}
+
+/* Loading & Error Styles (Optional) */
+.loading-indicator, .error-message {
+  text-align: center;
+  padding: 40px;
+  font-size: 1.2em;
+  color: #555;
+  background-color: #f8f8f8;
+  border-radius: 10px;
+  margin: 30px auto;
+  max-width: 600px;
+}
+
+.spinner {
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-left-color: #27ae60;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 20px;
+}
+
+/* Error Message Specifics */
+.error-message {
+  color: #c0392b;
+  background-color: #ffebee;
+  border: 1px solid #ef9a9a;
+}
+
+.error-message button {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+}
+
+.error-message button:hover {
+    background-color: #c0392b;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1500px) {
+  /* On screens where 5 cards fit, ensure minmax is good */
+  .blog-container {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 25px;
+  }
+}
+
+@media (max-width: 1300px) {
+  /* Adjust for screens where 4 cards are better */
+  .blog-container {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* 4 cards */
+    gap: 25px;
+  }
+}
+
+@media (max-width: 992px) {
+  /* Tablets: 3 cards */
+  .blog-list-title {
+    font-size: 2.8em;
+  }
+  .blog-container {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* 3 cards */
+    gap: 25px;
+  }
+  .blog-title {
+    font-size: 1.4em;
+  }
+  .blog-excerpt {
+    font-size: 0.9em;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Larger phones / small tablets: 2 cards */
+  .blog-list-wrapper {
+    margin: 25px auto;
+    padding: 20px;
+  }
+  .blog-list-title {
+    font-size: 2.2em;
+    margin-bottom: 30px;
+  }
+  .blog-container {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* 2 cards */
+    gap: 20px;
+  }
+  .blog-card {
+    border-radius: 10px;
+  }
+  .blog-content {
+    padding: 18px; /* Content padding adjusted */
+  }
+  .read-more-button {
+    padding: 9px 18px;
+    font-size: 0.95em;
+  }
+}
+
+@media (max-width: 576px) {
+  /* Small phones: 1 card */
+  .blog-list-title {
+    font-size: 1.8em;
+    margin-bottom: 25px;
+  }
+  .blog-container {
+    grid-template-columns: 1fr; /* Single column */
+    gap: 20px;
+  }
+  .blog-card {
+    max-width: 90%; /* Keep cards from touching edges */
+    margin: 0 auto; /* Center single column card */
+  }
+  .blog-content {
+    padding: 15px;
+  }
+  .blog-title {
+    font-size: 1.2em;
+  }
+  .blog-excerpt {
+    font-size: 0.85em;
+  }
+  .read-more-button {
+    padding: 8px 16px;
+    font-size: 0.85em;
+  }
+}

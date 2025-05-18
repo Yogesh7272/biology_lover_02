@@ -1,0 +1,8 @@
+<h2 class="title">Our Numbers</h2>
+
+<div class="stats-container">
+  <div class="stat-card" *ngFor="let stat of stats; let i = index">
+    <div #statElement id="stat-{{ i }}" class="stat-number"></div>
+    <p class="stat-label">{{ stat.label }}</p>
+  </div>
+</div>
