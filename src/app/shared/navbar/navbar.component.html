@@ -1,0 +1,31 @@
+<nav class="bg-green-800 text-white p-4 sticky top-0 z-50 shadow-md">
+    <div class="container mx-auto flex justify-between items-center">
+      <!-- Logo/Title -->
+      <a routerLink="/" class="text-2xl font-bold tracking-wide">Biology Lover</a>
+      <!-- Desktop Menu -->
+      <div class="space-x-6 hidden md:flex">
+        <a routerLink="/" class="hover:text-green-200 transition-colors duration-300">Home</a>
+        <a routerLink="/blogs" class="hover:text-green-200 transition-colors duration-300">Blog</a>
+        <a routerLink="/test" class="hover:text-green-200 transition-colors duration-300">Test</a>
+        <a routerLink="/mentorship" class="hover:text-green-200 transition-colors duration-300">Mentorship</a>
+        <a routerLink="/about" class="hover:text-green-200 transition-colors duration-300">About</a>
+        <a routerLink="/contact" class="hover:text-green-200 transition-colors duration-300">Contact</a>
+      </div>
+      <!-- Mobile Menu Button -->
+      <button class="md:hidden" (click)="toggleMenu()">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+        </svg>
+      </button>
+    </div>
+    <!-- Mobile Menu -->
+    <div *ngIf="isMenuOpen" class="md:hidden flex flex-col space-y-2 mt-2 bg-green-700 p-4">
+      <a routerLink="/" class="hover:text-green-200" (click)="toggleMenu()">Home</a>
+      <a routerLink="/blogs" class="hover:text-green-200" (click)="toggleMenu()">Blog</a>
+      <a routerLink="/test" class="hover:text-green-200" (click)="toggleMenu()">Test</a>
+      <a routerLink="/mentorship" class="hover:text-green-200" (click)="toggleMenu()">Mentorship</a>
+      <a routerLink="/about" class="hover:text-green-200" (click)="toggleMenu()">About</a>
+      <a routerLink="/contact" class="hover:text-green-200" (click)="toggleMenu()">Contact</a>
+    </div>
+  </nav>
+  

@@ -1,0 +1,26 @@
+<div class="blog-detail-wrapper">
+  <div class="blog-detail-card" *ngIf="blog">
+    <div class="blog-image-container">
+      <img [src]="blog.imageUrl" alt="{{ blog.title }}" class="blog-detail-image">
+    </div>
+
+    <div class="blog-content-detail">
+      <h1 class="blog-detail-title">{{ blog.title }}</h1>
+      <p class="blog-detail-meta">Published: <i>{{ blog.createdAt | date:'longDate' }}</i></p>
+      <div class="blog-detail-text">
+        <p>{{ blog.content }}</p>
+      </div>
+    </div>
+
+    <div class="blog-detail-actions">
+      <button (click)="goBack()" class="back-button">
+        &larr; Back to Blogs
+      </button>
+    </div>
+  </div>
+
+  <div *ngIf="!blog" class="loading-or-error">
+    <p>Loading blog details...</p>
+    </div>
+</div>
+<footer></footer>

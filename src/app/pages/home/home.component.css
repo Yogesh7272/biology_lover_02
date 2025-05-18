@@ -1,0 +1,14 @@
+/* home.component.css */
+h1 {
+    animation: bounce 2s infinite;  /* Add a bounce effect to the "Coming Soon" text */
+  }
+  
+  @keyframes bounce {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+  

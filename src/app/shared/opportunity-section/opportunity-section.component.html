@@ -1,0 +1,10 @@
+<h1>Pick The Right Opportunity!</h1>
+<p>Explore opportunities that suit your skills and interests</p>
+
+<div class="scroll-container">
+  <app-card
+    *ngFor="let card of cards"
+    [title]="card.title"
+    [image]="card.image">
+  </app-card>
+</div>

@@ -1,0 +1,13 @@
+.scroll-container {
+    display: flex;
+    overflow-x: auto;
+    gap: 20px;
+    padding: 20px 0;
+    scroll-behavior: smooth;
+    scrollbar-width: none; /* Firefox */
+  }
+  
+  .scroll-container::-webkit-scrollbar {
+    display: none; /* Chrome/Safari */
+  }
+  
