@@ -7,11 +7,12 @@ import { CardComponent } from "./shared/card/card.component";
 import { SharedModule } from './shared/shared/shared.module';
 import { OpportunitySectionComponent } from "./shared/opportunity-section/opportunity-section.component";
 import { OurNumbersComponent } from './shared/our-numbers/our-numbers.component';
+import { DashboardComponent } from "./pages/dashboard/dashboard.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet,CommonModule, NavbarComponent],
+  imports: [RouterOutlet, CommonModule, NavbarComponent, DashboardComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
