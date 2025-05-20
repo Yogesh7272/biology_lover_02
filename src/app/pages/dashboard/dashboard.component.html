@@ -1,0 +1,16 @@
+<!-- Show login form only if showLoginForm = true -->
+<div *ngIf="showLoginForm" class="login-form">
+  <h2>Login</h2>
+  <form #loginForm="ngForm" (ngSubmit)="login(loginForm.value.username, loginForm.value.password)">
+    <input type="text" name="username" ngModel placeholder="Username" required />
+    <input type="password" name="password" ngModel placeholder="Password" required />
+    <button type="submit">Login</button>
+  </form>
+</div>
+
+<!-- Show dashboard after login -->
+<div *ngIf="showDashboard" class="dashboard">
+  <h2>Welcome, {{ currentUser }}</h2>
+  <p>This is your profile dashboard.</p>
+  <button (click)="logout()">Logout</button>
+</div>
